@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "timedisplay",
+  "version": "1.0c",
+  "name": "Time Display",
+  "description": "A quick way to show Minecraft/real time on screen!",
+  "authors": [
+    "Iru21"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Iru21/TimeDisplay",
+    "issues": "https://github.com/Iru21/TimeDisplay/Issues",
+    "sources": "https://github.com/Iru21/TimeDisplay"
+  },
+  "license": "GNU Lesser General Public License version 3 (LGPLv3)",
+  "icon": "assets/timedisplay/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "me.iru.timedisplay.TimeDisplay"
+      }
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.12.12",
+    "fabric": "*",
+    "fabric-language-kotlin": ">=1.7.1+kotlin.1.6.10",
+    "minecraft": ">=1.19",
+    "java": ">=17"
+  }
+}
