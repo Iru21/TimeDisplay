@@ -57,17 +57,4 @@ class HudRenderHandler : HudRenderCallback {
         return r
     }
 
-    private fun drawBackground(matrixStack: MatrixStack, l: List<String>) {
-
-        val longest = l.get(0).length
-
-        DrawableHelper.fill(
-            matrixStack,
-            (TimeDisplay.offset / 2).toInt(),
-            (TimeDisplay.offset / 2).toInt(),
-            (longest * 5.5f + TimeDisplay.offset).toInt(),
-            (TimeDisplay.offset * TimeDisplay.lines.size * 1.6f + (TimeDisplay.offset * 0.75f)).toInt(),
-            (0x40000000).toInt()
-        )
-    }
 }
