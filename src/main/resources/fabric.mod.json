@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "timedisplay",
-  "version": "1.0c",
+  "version": "1.2.0",
   "name": "Time Display",
   "description": "A quick way to show Minecraft/real time on screen!",
   "authors": [
@@ -16,11 +16,14 @@
   "icon": "assets/timedisplay/icon.png",
   "environment": "*",
   "entrypoints": {
-    "main": [
+    "client": [
       {
         "adapter": "kotlin",
         "value": "me.iru.timedisplay.TimeDisplay"
       }
+    ],
+    "modmenu": [
+      "me.iru.timedisplay.config.ModMenuIntegration"
     ]
   },
   "depends": {
@@ -29,5 +32,12 @@
     "fabric-language-kotlin": ">=1.7.1+kotlin.1.6.10",
     "minecraft": ">=1.19",
     "java": ">=17"
+  },
+  "custom": {
+    "modmenu": {
+        "links": {
+          "modmenu.discord": "https://discord.gg/jrebrmDD5X"
+        }
+    }
   }
 }

@@ -11,7 +11,7 @@ import java.util.*
 class HudRenderHandler : HudRenderCallback {
     override fun onHudRender(matrixStack: MatrixStack?, tickDelta: Float) {
         val mc = MinecraftClient.getInstance()
-        if(matrixStack != null && !mc.options.debugEnabled) {
+        if(matrixStack != null && !mc.options.debugEnabled && TimeDisplay.config.enabled) {
             var linesData: List<String> = TimeDisplay.lines.toList().map { it() }
             Collections.sort(linesData, Comparator.comparing(String::length))
             linesData = linesData.reversed()
@@ -33,7 +33,7 @@ class HudRenderHandler : HudRenderCallback {
                     line,
                     TimeDisplay.offset,
                     posY,
-                    0xFFFFFF
+                    TimeDisplay.config.primaryColor
                 )
                 posY += height
             }
@@ -45,9 +45,9 @@ class HudRenderHandler : HudRenderCallback {
         for(ch in s) {
             r.append(Text.literal(ch.toString()).styled {
                 if(ch.isDigit()) {
-                    it.withColor(0xffaa00)
+                    it.withColor(TimeDisplay.config.accentColor)
                 } else if(ch == ':' || ch == '/' || ch == '(' || ch == ')') {
-                    it.withColor(0xaaaaaa)
+                    it.withColor(TimeDisplay.config.secondaryColor)
                 } else {
                     it
                 }

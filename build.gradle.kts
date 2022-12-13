@@ -18,6 +18,8 @@ val mavenGroup: String by project
 group = mavenGroup
 repositories {
     mavenCentral()
+    maven(url = "https://maven.shedaniel.me")
+    maven(url = "https://maven.terraformersmc.com/releases/")
 }
 dependencies {
     val minecraftVersion: String by project
@@ -30,6 +32,10 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricVersion")
     val fabricKotlinVersion: String by project
     modImplementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
+    val clothConfigVersion: String by project
+    modApi("me.shedaniel.cloth:cloth-config-fabric:$clothConfigVersion")
+    val modMenuVersion: String by project
+    modApi("com.terraformersmc:modmenu:$modMenuVersion")
 }
 tasks {
     val javaVersion = JavaVersion.VERSION_17
