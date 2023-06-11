@@ -3,15 +3,14 @@ package me.iru.timedisplay.events
 import me.iru.timedisplay.TimeDisplay
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
 import net.minecraft.client.MinecraftClient
-import net.minecraft.client.gui.DrawableHelper
-import net.minecraft.client.util.math.MatrixStack
+import net.minecraft.client.gui.DrawContext
 import net.minecraft.text.Text
 import java.util.*
 
 class HudRenderHandler : HudRenderCallback {
-    override fun onHudRender(matrixStack: MatrixStack?, tickDelta: Float) {
+    override fun onHudRender(drawContext: DrawContext?, tickDelta: Float) {
         val mc = MinecraftClient.getInstance()
-        if(matrixStack != null && !mc.options.debugEnabled && TimeDisplay.config.enabled) {
+        if(drawContext != null && !mc.options.debugEnabled && TimeDisplay.config.enabled) {
             var linesData: List<String> = TimeDisplay.lines.toList().map { it() }
             Collections.sort(linesData, Comparator.comparing(String::length))
             linesData = linesData.reversed()
@@ -20,19 +19,18 @@ class HudRenderHandler : HudRenderCallback {
             for (i in 1.. linesData.size) {
                 val line = style(linesData[i - 1])
                 val width = mc.textRenderer.getWidth(line)
-                DrawableHelper.fill(
-                    matrixStack,
+                drawContext.fill(
                     (TimeDisplay.offset - 1).toInt(),
                     (posY - 1).toInt(),
                     width + 8 + (if((width + 8) < 100) 1 else 0),
                     (posY + mc.textRenderer.fontHeight + 1).toInt(),
                     (0x40000000).toInt()
                 )
-                mc.textRenderer.drawWithShadow(
-                    matrixStack,
+                drawContext.drawTextWithShadow(
+                    mc.textRenderer,
                     line,
-                    TimeDisplay.offset,
-                    posY,
+                    TimeDisplay.offset.toInt(),
+                    posY.toInt(),
                     TimeDisplay.config.primaryColor
                 )
                 posY += height

@@ -1,7 +1,6 @@
 package me.iru.timedisplay
 
 import net.minecraft.client.MinecraftClient
-import net.minecraft.stat.Stats
 import java.text.SimpleDateFormat
 import java.time.temporal.ChronoUnit
 import java.util.*
