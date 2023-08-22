@@ -19,7 +19,8 @@ object TimeUtils {
     }
 
     val getRealTime: () -> String = {
-        val sdf = SimpleDateFormat("HH:mm:ss")
+        val format = if (TimeDisplay.config.twelveClockMode) "h:mm:ss a" else "HH:mm:ss"
+        val sdf = SimpleDateFormat(format)
         sdf.format(System.currentTimeMillis())
     }
 

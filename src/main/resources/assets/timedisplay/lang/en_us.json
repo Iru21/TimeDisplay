@@ -1,6 +1,7 @@
 {
   "text.autoconfig.timedisplay.title": "Time Display Config",
   "text.autoconfig.timedisplay.option.enabled": "Enabled",
+  "text.autoconfig.timedisplay.option.twelveClockMode": "12-clock",
   "text.autoconfig.timedisplay.option.primaryColor": "Primary Color",
   "text.autoconfig.timedisplay.option.secondaryColor": "Secondary Color",
   "text.autoconfig.timedisplay.option.accentColor": "Accent Color",
