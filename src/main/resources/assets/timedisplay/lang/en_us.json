@@ -2,6 +2,7 @@
   "text.autoconfig.timedisplay.title": "Time Display Config",
   "text.autoconfig.timedisplay.option.enabled": "Enabled",
   "text.autoconfig.timedisplay.option.twelveClockMode": "12-Hour Clock (AM/PM)",
+  "text.autoconfig.timedisplay.option.sortLinesByLength": "Sort lines by length",
   "text.autoconfig.timedisplay.option.primaryColor": "Primary Color",
   "text.autoconfig.timedisplay.option.secondaryColor": "Secondary Color",
   "text.autoconfig.timedisplay.option.accentColor": "Accent Color",
