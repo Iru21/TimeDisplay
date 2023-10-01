@@ -8,6 +8,8 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry
 class TimeDisplayConfig : ConfigData {
     var enabled: Boolean = true
 
+    var twelveClockMode: Boolean = false
+
     @ConfigEntry.ColorPicker
     var primaryColor: Int = 0xffffff
 
