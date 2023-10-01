@@ -10,6 +10,8 @@ class TimeDisplayConfig : ConfigData {
 
     var twelveClockMode: Boolean = false
 
+    var sortLinesByLength: Boolean = false
+
     @ConfigEntry.ColorPicker
     var primaryColor: Int = 0xffffff
 

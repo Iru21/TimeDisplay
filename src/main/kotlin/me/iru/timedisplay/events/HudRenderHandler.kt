@@ -5,23 +5,18 @@ import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.text.Text
+import java.util.*
 
 class HudRenderHandler : HudRenderCallback {
     override fun onHudRender(drawContext: DrawContext?, tickDelta: Float) {
         val mc = MinecraftClient.getInstance()
         if (drawContext != null && !mc.options.debugEnabled && TimeDisplay.config.enabled) {
-            val linesData: List<String> = TimeDisplay.lines.toList().map { it() }
+            var linesData: List<String> = TimeDisplay.lines.toList().map { it() }
 
-            /**
-             * Why is this?
-             * ```
-             * Collections.sort(linesData, Comparator.comparing(String::length))
-             * linesData = linesData.reversed()
-             * ```
-             * If left that part:
-             * 1. When switch between 24 and 12 clock modes it moves lines because line length change.
-             * 2. When someone add localization, it's also going to move lines because words is diff length in different locale
-             * */
+            if (TimeDisplay.config.sortLinesByLength) {
+                Collections.sort(linesData, Comparator.comparing(String::length))
+                linesData = linesData.reversed()
+            }
 
             var posY = TimeDisplay.offset
             val height = mc.textRenderer.fontHeight + 2
