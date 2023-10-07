@@ -36,7 +36,11 @@ object TimeUtils {
         val min = (dayTicks / 16.666666).toInt() % 60
         val sec = (dayTicks / 0.277777).toInt() % 60
 
-        "Ingame Time (${String.format("%02d", hour)}:${String.format("%02d", min)}:${String.format("%02d", sec)})"
+        if(TimeDisplay.config.twelveClockMode) {
+            "Ingame Time (${String.format("%02d", hour % 12)}:${String.format("%02d", min)}:${String.format("%02d", sec)} ${if(hour > 12) "PM" else "AM"})"
+        } else {
+            "Ingame Time (${String.format("%02d", hour)}:${String.format("%02d", min)}:${String.format("%02d", sec)} )"
+        }
     }
 
     val getMinecraftDate: () -> String = {

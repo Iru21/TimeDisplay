@@ -19,9 +19,6 @@ import org.lwjgl.glfw.GLFW
 
 object TimeDisplay: ClientModInitializer {
 
-    private const val modName = "Time Display"
-    private const val version = "1.2.0"
-
     val offset = 7.5f
     val lines = mutableListOf<() -> String>()
     lateinit var toggleKeyBinding: KeyBinding
@@ -31,7 +28,7 @@ object TimeDisplay: ClientModInitializer {
     lateinit var config: TimeDisplayConfig
 
     override fun onInitializeClient() {
-        println("[$modName] Enabling $version")
+        println("[Time Display] Enabling...")
 
         AutoConfig.register(
             TimeDisplayConfig::class.java
