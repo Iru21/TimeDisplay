@@ -1,0 +1,3 @@
+- [Update to 1.20.2](https://github.com/Iru21/TimeDisplay/commit/2486787a480699053143deee0a044e0264efbe74)
+- Add a 12-hour clock mode (disabled by default) ([#5](https://github.com/Iru21/TimeDisplay/pull/5))
+- Make line sorting toggleable (disabled by default) ([#6](https://github.com/Iru21/TimeDisplay/pull/6), [e255be9](https://github.com/Iru21/TimeDisplay/commit/e255be9aa94f1c1d334c8825728b364b34b86ea9))
