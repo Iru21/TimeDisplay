@@ -5,17 +5,16 @@ import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.text.Text
-import java.util.*
 
 class HudRenderHandler : HudRenderCallback {
     override fun onHudRender(drawContext: DrawContext?, tickDelta: Float) {
         val mc = MinecraftClient.getInstance()
-        if (drawContext != null && !mc.options.debugEnabled && TimeDisplay.config.enabled) {
+        if (drawContext != null && !mc.debugHud.shouldShowDebugHud() && TimeDisplay.config.enabled) {
             var linesData: List<String> = TimeDisplay.lines.toList().map { it() }
 
+
             if (TimeDisplay.config.sortLinesByLength) {
-                Collections.sort(linesData, Comparator.comparing(String::length))
-                linesData = linesData.reversed()
+                linesData = linesData.sortedBy { mc.textRenderer.getWidth(it) }.reversed()
             }
 
             var posY = TimeDisplay.offset
