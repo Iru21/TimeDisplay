@@ -1,0 +1,12 @@
+{
+  "text.autoconfig.timedisplay.title": "Configuration de l'affichage de l'heure",
+  "text.autoconfig.timedisplay.option.enabled": "Activé",
+  "text.autoconfig.timedisplay.option.twelveClockMode": "Format d'horloge 12 heures (AM/PM)",
+  "text.autoconfig.timedisplay.option.sortLinesByLength": "Trier les lignes par longueur",
+  "text.autoconfig.timedisplay.option.primaryColor": "Couleur principale",
+  "text.autoconfig.timedisplay.option.secondaryColor": "Couleur secondaire",
+  "text.autoconfig.timedisplay.option.accentColor": "Couleur d’accentuation",
+  "category.timedisplay.keybinds": "Affichage de l'heure",
+  "key.timedisplay.toggle": "Activer/Désactiver"
+}
+
