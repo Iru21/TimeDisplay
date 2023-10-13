@@ -95,4 +95,5 @@ modrinth {
     loaders.addAll("fabric", "quilt")
     changelog.set(rootProject.file("changelog.md").readText())
     syncBodyFrom.set(rootProject.file("README.md").readText())
+    required.project("cloth-config")
 }
