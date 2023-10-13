@@ -19,6 +19,7 @@ group = maven_group
 val minecraft_version: String by project
 val loader_version: String by project
 val fabric_kotlin_version: String by project
+val cloth_config_version: String by project
 
 repositories {
     mavenCentral()
@@ -37,7 +38,6 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabric_version")
     modImplementation("net.fabricmc:fabric-language-kotlin:$fabric_kotlin_version")
 
-    val cloth_config_version: String by project
     modApi("me.shedaniel.cloth:cloth-config-fabric:$cloth_config_version")
 
     val mod_menu_version: String by project
@@ -60,6 +60,7 @@ tasks {
                     "minecraft_version" to minecraft_version,
                     "loader_version" to loader_version,
                     "fabric_kotlin_version" to fabric_kotlin_version,
+                    "cloth_config_version" to cloth_config_version
                 )
             )
         }
@@ -94,4 +95,5 @@ modrinth {
     loaders.addAll("fabric", "quilt")
     changelog.set(rootProject.file("changelog.md").readText())
     syncBodyFrom.set(rootProject.file("README.md").readText())
+    required.project("cloth-config")
 }

@@ -39,7 +39,7 @@ object TimeUtils {
         if(TimeDisplay.config.twelveClockMode) {
             "Ingame Time (${String.format("%02d", hour % 12)}:${String.format("%02d", min)}:${String.format("%02d", sec)} ${if(hour > 12) "PM" else "AM"})"
         } else {
-            "Ingame Time (${String.format("%02d", hour)}:${String.format("%02d", min)}:${String.format("%02d", sec)} )"
+            "Ingame Time (${String.format("%02d", hour)}:${String.format("%02d", min)}:${String.format("%02d", sec)})"
         }
     }
 
